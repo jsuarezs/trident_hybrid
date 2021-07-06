@@ -17,5 +17,5 @@ Learn how to deploy and use Trident on-premises and then move your Persistent Vo
 
 ## Setup and testing
 
-Click [here](0_worker1-k3s/README_onprem.md) to follow the steps in order to deploy and install Trident using a NetApp ONTAP on-premises cluster as persistent storage. And [here](1_worker2-ec2-k3s/README_cloud-md) for cloud deployment.
+Click [here](0_worker1-k3s/README_onprem.md) to follow the steps in order to deploy and install Trident using a NetApp ONTAP on-premises cluster as persistent storage. And [here](1_worker2-ec2-k3s/README_cloud.md) for cloud deployment.
 
