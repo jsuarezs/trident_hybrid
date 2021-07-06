@@ -1,5 +1,7 @@
-# Working with Trident in Hybrid Cloud scenario
+# Working with NetApp Trident in Hybrid Cloud scenario
 Learn how to deploy and use Trident on-premises and then move your Persistent Volumes (PV) smoothly to AWS using NetApp technologies.
+
+This will provide persistence storage for statetul containers applications among of other features provided by NetApp Cloud Manager.
 
 ## Architecture
 
@@ -17,5 +19,7 @@ Learn how to deploy and use Trident on-premises and then move your Persistent Vo
 
 ## Setup and testing
 
-Click [here](0_worker1-k3s/README_onprem.md) to follow the steps in order to deploy and install Trident using a NetApp ONTAP on-premises cluster as persistent storage. And [here](1_worker2-ec2-k3s/README_cloud.md) for cloud deployment.
+My reommendation is going around Trident resources before deploying it so you will understand all the concepts before going steps further -> [Trident docs](https://netapp-trident.readthedocs.io/en/stable-v21.04/)
+
+Click [here](0_worker1-k3s/README_onprem.md) to follow the steps in order to deploy and install Trident using a NetApp ONTAP on-premises cluster as persistent storage. And [here](1_worker2-ec2-k3s/README_cloud.md) for cloud deployment with Cloud Volumes ONTAP (CVO).
 
