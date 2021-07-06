@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "storageDriverName": "ontap-nas",
+    "backendName": "BackendForNAS",
+    "managementLIF": "10.67.217.203",
+    "dataLIF": "10.67.217.65",
+    "svm": "SVM_OpenShift",
+    "username": "openshift",
+    "password": "N3tApp00",
+     "limitVolumeSize": "50Gi",
+      "defaults": {
+          "spaceReserve": "none",
+                   }
+ }
