@@ -77,3 +77,18 @@ Then we're ready to provision our first volume using Trident, in this case in my
 kubectl create ns app
 kubectl apply -f vol-nas.yaml -n app
 ```
+
+Now we can check that PVC was already created and the associated PV in ONTAP cluster. This volume will be Snapmirrored to NetApp CVO in AWS.
+
+```
+root@worker1-virtual-machine:/home/worker1/trident-installer# kubectl get pv
+NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM      STORAGECLASS   REASON   AGE
+pvc-34a9dcc0-e4cd-4d81-9248-8ad5f5bfd19e   2Gi        RWO            Retain           Bound    app/vol2   nas                     32d
+
+
+clusterlab::> vol show -vserver SVM_OpenShift 
+Vserver   Volume       Aggregate    State      Type       Size  Available Used%
+--------- ------------ ------------ ---------- ---- ---------- ---------- -----
+SVM_OpenShift SVM_OpenShift_root aggr_nodo01_DATOS online RW 1GB  970.8MB    0%
+SVM_OpenShift trident_pvc_34a9dcc0_e4cd_4d81_9248_8ad5f5bfd19e aggr_nodo02_DATOS online RW 2GB 2.00GB  0%
+```

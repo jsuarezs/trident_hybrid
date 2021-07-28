@@ -30,23 +30,17 @@ As container orchestration systems like Kubernetes doesn't speak bout storage ba
 
 Trident supports NAS and SAN backend protocols. In this case NAS is configured to serve data using NFS protocol.
 
-- So the first step would be to create the NAS backend on-premises using ontap-nas driver instead of ontap-san.
+- So the first step would be to create the NAS backend like on-premises using ontap-nas driver instead of ontap-san. Check the files whatever if you're looking for deploying single or HA NetApp CVO.
+
+Take notes that I'm also using NetApp storage efficiencies setting ```spaceReserve to none``` and one dedicated Storage Virtual Machine (SVM) was also deployed for Trident taking advantages of NetApp Multi-Tenancy (SMT) for security reasons.
+
+The user ```k3saws``` is also dedicated to Trident's SVM with the rights to create volumes in only this SVM and ```dataLIF``` is the IP servicing data in this SVM. The best way to get this data is from Cloud Manager, inside the CVO environment and check for the correct ```dataLIF``` to serve.
 
 ```
 cd trident-installer
 
-./tridentctl create backend --filename backend-nas.json -n trident
-
-root@worker1-virtual-machine:/home/worker1/trident-installer# ./tridentctl get backend -n trident
-+---------------+----------------+--------------------------------------+--------+---------+
-|     NAME      | STORAGE DRIVER |                 UUID                 | STATE  | VOLUMES |
-+---------------+----------------+--------------------------------------+--------+---------+
-| BackendForNAS | ontap-nas      | e49a08fb-995d-4641-a127-8c06700c1962 | online |       2 |
-+---------------+----------------+--------------------------------------+--------+---------+
+./tridentctl create backend --filename backend-cloud.json -n trident
 ```
-Take notes that I'm also using NetApp storage efficiencies setting ```spaceReserve to none``` and one dedicated Storage Virtual Machine (SVM) was also deployed for Trident taking advantages of NetApp Multi-Tenancy (SMT) for security reasons.
-
-The user ```openshift``` is also dedicated to Trident's SVM with the rights to create volumes in only this SVM and ```dataLIF``` is the IP servicing data in this SVM.
 
 ## Create Trident storage classes
 
@@ -55,16 +49,12 @@ When a user creates a PVC that refers to a Trident-based StorageClass, Trident w
 - So the step should be create the StorageClass.
 
 ```
-kubectl apply -f sc-nas.yaml
-
-root@worker1-virtual-machine:~# kubectl get sc
-NAME                   PROVISIONER             RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
-nas                    csi.trident.netapp.io   Retain          Immediate              true                   11d
+kubectl apply -f sc-nas-cloud.yaml
 ```
 Take notes that it's mandatory to specify the provisioner and in this case it's also mentioned to reference this StorageClass with the ontap-nas backend created before.
 
-Then we're ready to provision our first volume using Trident, in this case in my application namespace.
+Then we're ready to the final step to import the volume which was Snapmirrored from on-premise to NetApp CVO using ```Trident import```.
+
 ```
-kubectl create ns app
-kubectl apply -f vol-nas.yaml -n app
+./tridentctl import volume BackendForNAS trident_pvc_34a9dcc0_e4cd_4d81_9248_8ad5f5bfd19e -f vol-nas-cloud.yaml -n trident
 ```
