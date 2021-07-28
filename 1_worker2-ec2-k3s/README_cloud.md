@@ -41,10 +41,12 @@ cd trident-installer
 
 ./tridentctl create backend --filename backend-cloud.json -n trident
 ```
-NOTES to create the backend in NetApp HA-CVO using Trident:
+## NOTES to create the backend in NetApp HA-CVO using Trident
 
+In the backend-cloud-ha files you can see a CVO-HA approach where we have two aggregates ```aggr1 & aggr2``` one per CVO node and AWS AZ using the label ```topology.kubernetes.io/zone``` where we set the AWS AZ to deploy the PV.
 
-In case
+Using ```WaitForFirstConsumer``` in the SotrageClass CVO-HA definition every time you create a PVC it will be pending and the PV will be created once the pod is scheduled, and in the same AWS AZ as the pod.
+
 
 ## Create Trident storage classes
 

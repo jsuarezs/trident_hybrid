@@ -2,7 +2,7 @@
     "version": 1,
     "storageDriverName": "ontap-nas",
     "backendName": "cvonas-1a",
-    "managementLIF": "10.20.30.1",//Floating Management
+    "managementLIF": "10.20.30.1", //Floating Management
     "dataLIF": "10.20.30.10", //Floating Data Node1
     "svm": "svm_ontap_aws",
     "username": "k3saws",
