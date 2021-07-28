@@ -59,7 +59,9 @@ kubectl apply -f sc-nas-cloud.yaml
 ```
 Take notes that it's mandatory to specify the provisioner and in this case it's also mentioned to reference this StorageClass with the ontap-nas backend created before.
 
-Then we're ready to the final step to import the volume which was Snapmirrored from on-premise to NetApp CVO using ```Trident import```.
+## Importing the current PV to AWS worker node
+
+Then we're ready to the final step to import the volume which was Snapmirrored from on-premise to NetApp CVO using ```Trident import```. This action esentially will import existing storage volume as Kubernetes PV.
 
 ```
 ./tridentctl import volume BackendForNAS trident_pvc_34a9dcc0_e4cd_4d81_9248_8ad5f5bfd19e -f vol-nas-cloud.yaml -n trident

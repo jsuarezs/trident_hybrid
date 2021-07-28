@@ -72,7 +72,7 @@ nas                    csi.trident.netapp.io   Retain          Immediate        
 ```
 Take notes that it's mandatory to specify the provisioner and in this case it's also mentioned to reference this StorageClass with the ontap-nas backend created before.
 
-Then we're ready to provision our first volume using Trident, in this case in my application namespace.
+Then we're ready to provision our first volume using Trident, in this case in my application namespace. Take notes that I'm also setting a Snapshot policy to create point-in-time copies using my default policy.
 ```
 kubectl create ns app
 kubectl apply -f vol-nas.yaml -n app
@@ -92,3 +92,5 @@ Vserver   Volume       Aggregate    State      Type       Size  Available Used%
 SVM_OpenShift SVM_OpenShift_root aggr_nodo01_DATOS online RW 1GB  970.8MB    0%
 SVM_OpenShift trident_pvc_34a9dcc0_e4cd_4d81_9248_8ad5f5bfd19e aggr_nodo02_DATOS online RW 2GB 2.00GB  0%
 ```
+
+## How to take 
