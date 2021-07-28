@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "storageDriverName": "ontap-nas",
+    "backendName": "cvonas-1c",
+    "managementLIF": "10.20.30.1", //Floating Management
+    "dataLIF": "10.20.30.20", //Floating Data Node2
+    "svm": "svm_ontap_aws",
+    "username": "k3saws",
+    "password": "N3tApp00!",
+    "aggregate": "aggr2",
+    "defaults": {
+        "exportPolicy": "export-svm_ontap_aws"
+    },
+    "supportedTopologies": [
+        {"topology.kubernetes.io/region": "us-east-1", "topology.kubernetes.io/zone": "us-east-1c"}
+    ]
+}
