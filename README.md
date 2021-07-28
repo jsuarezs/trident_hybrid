@@ -19,7 +19,7 @@ This will provide persistence storage for statetul containers applications among
 ### Reference image showing Cloud Volumes ONTAP in HA configuration on AWS connected to Elastic Container Services
 
 
-![AWS_EKS](https://user-images.githubusercontent.com/59535705/127310761-b2b26a25-e3b3-400c-87eb-d9007a0a9b3c.jpeg)
+![Slide1](https://user-images.githubusercontent.com/59535705/127311459-75ee4c01-0e5c-4b75-82c5-84aa404d8a37.jpeg)
 
 
 ## Setup and testing
