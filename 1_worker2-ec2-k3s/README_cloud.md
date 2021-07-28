@@ -41,6 +41,10 @@ cd trident-installer
 
 ./tridentctl create backend --filename backend-cloud.json -n trident
 ```
+NOTES to create the backend in NetApp HA-CVO using Trident:
+
+
+In case
 
 ## Create Trident storage classes
 
