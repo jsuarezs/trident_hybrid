@@ -14,7 +14,7 @@ This will provide persistence storage for statetul containers applications among
   
 ### Reference image showing NetApp ONTAP on-premises cluster replicating to Cloud Volumes ONTAP on AWS using NetApp SnapMirror
 
-![cvo_snapmirror_aws](https://user-images.githubusercontent.com/59535705/127310359-0a1f99c5-6310-4688-b24d-79be4c5fb580.png)
+![snapmirror](https://user-images.githubusercontent.com/59535705/127315499-78f4a187-dbe3-43dd-b00a-577a1b51f147.jpeg)
 
 ### Reference image showing Cloud Volumes ONTAP in HA configuration on AWS connected to Elastic Container Services
 
