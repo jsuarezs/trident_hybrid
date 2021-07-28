@@ -12,10 +12,14 @@ This will provide persistence storage for statetul containers applications among
     - One t2.medium EC2 running Ubuntu 18.04 Bionic working as a k3s worker node on AWS.
     - One NetApp Cloud Volumes ONTAP (CVO) of your choice, could be a single-node or HA configuration running on AWS.
   
+### Reference image showing NetApp ONTAP on-premises cluster replicating to Cloud Volumes ONTAP on AWS using NetApp SnapMirror
 
-### Reference image showing Cloud Volumes ONTAP in HA configuration on AWS
+- imagen de snapmirror hybrid
+
+### Reference image showing Cloud Volumes ONTAP in HA configuration on AWS connected to Elastic Container Services
 
 - imagen de eks + cvo
+
 
 ## Setup and testing
 
