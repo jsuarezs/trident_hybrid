@@ -92,5 +92,4 @@ Vserver   Volume       Aggregate    State      Type       Size  Available Used%
 SVM_OpenShift SVM_OpenShift_root aggr_nodo01_DATOS online RW 1GB  970.8MB    0%
 SVM_OpenShift trident_pvc_34a9dcc0_e4cd_4d81_9248_8ad5f5bfd19e aggr_nodo02_DATOS online RW 2GB 2.00GB  0%
 ```
-
-## How to take 
+∫
