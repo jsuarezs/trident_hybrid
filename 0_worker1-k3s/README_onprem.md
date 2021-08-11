@@ -78,6 +78,8 @@ kubectl create ns app
 kubectl apply -f vol-nas.yaml -n app
 ```
 
+## Create PV using Trident
+
 Now we can check that PVC was already created and the associated PV in ONTAP cluster. This volume will be Snapmirrored to NetApp CVO in AWS.
 
 ```
@@ -92,3 +94,16 @@ Vserver   Volume       Aggregate    State      Type       Size  Available Used%
 SVM_OpenShift SVM_OpenShift_root aggr_nodo01_DATOS online RW 1GB  970.8MB    0%
 SVM_OpenShift trident_pvc_34a9dcc0_e4cd_4d81_9248_8ad5f5bfd19e aggr_nodo02_DATOS online RW 2GB 2.00GB  0%
 ```
+
+## How to create On-Demand PVC snapshots
+
+Beginning with the 20.01 release of Trident, it is now possible to use the beta Volume Snapshot feature to create snapshots of PVs at the Kubernetes layer. 
+
+These snapshots can be used to maintain point-in-time copies of volumes that have been created by Trident and can also be used to schedule the creation of additional volumes (clones). This feature is available for Kubernetes 1.17 and above.
+
+Before creating a Volume Snapshot, a VolumeSnapshotClass must be set up -> ```volumesnapshotclass.yaml``` and create the Snapshot using ```kubectl create -f snap.yaml```.
+
+This esentially will create a Snapshot fot the volume called ```vol1``` and rename the Snapshot to ```pvc1-snap```.
+
+
+
