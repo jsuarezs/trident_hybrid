@@ -1,4 +1,4 @@
-# Working with NetApp Trident in Hybrid Cloud scenario
+# Working with NetApp Trident in a Hybrid Cloud scenario
 Learn how to deploy and use Trident on-premises and then move your Persistent Volumes (PV) smoothly to AWS using NetApp technologies.
 
 This will provide persistence storage for statetul containers applications among of other features provided by NetApp Cloud Manager.
